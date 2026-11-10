@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f1ff">
+  <meta name="description" content="A little, lovely place made just for Khloe.">
+  <title>A Little Place for You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="lily-rain" id="lily-rain" aria-hidden="true"></div>
+
+  <main>
+    <!-- Welcome screen: change the passphrase in script.js before sharing. -->
+    <section class="welcome" id="welcome" aria-labelledby="welcome-title">
+      <div class="welcome-card">
+        <span class="tiny-star star-one" aria-hidden="true">✦</span>
+        <span class="tiny-star star-two" aria-hidden="true">✧</span>
+        <div class="welcome-flower" aria-hidden="true">♡</div>
+        <p class="eyebrow">A little something, just for you</p>
+        <h1 id="welcome-title">A Little Place<br><em>for You</em></h1>
+        <p class="welcome-copy">If I could gather all the little things that remind me of you, I'd weave them into a world of their own. A world made of the things you love, the little things that make you smile, and all the colors that remind me of you.<br><br>And somewhere in that world, there would be a little place just for you, a place where worries grow quiet, where pain feels a little lighter, and where happiness finds its way into even the smallest moments. A place where everything you hold dear has a home, and where you can simply be yourself, without a care in the world.</p>
+        <form class="unlock-form" id="unlock-form">
+          <label class="sr-only" for="passphrase">Passphrase</label>
+          <input id="passphrase" name="passphrase" type="password" placeholder="A little secret…" autocomplete="off" required>
+          <button class="button button-primary" type="submit">Unlock <span aria-hidden="true">→</span></button>
+          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+        </form>
+        <p class="handwritten welcome-note">I can only hope the world is gentle enough to let our paths remain intertwined</p>
+      </div>
+      <div class="welcome-envelope" id="welcome-envelope" aria-hidden="true"><span>♡</span></div>
+    </section>
+
+    <!-- The personal site is revealed after the welcome form is unlocked. -->
+    <div class="site" id="site" hidden>
+      <header class="topbar">
+        <a class="wordmark" href="#home" aria-label="A Little Place for You, home">♡ <span>a little place</span></a>
+        <nav aria-label="Main navigation">
+          <a href="#letters">Letters</a>
+          <a href="#memories">Memories</a>
+          <a href="#confession">The important bit</a>
+        </nav>
+        <button class="music-button" id="music-toggle" type="button" aria-pressed="false" aria-label="Play background music">
+          <span class="music-icon" aria-hidden="true"><span></span><span></span><span></span></span><span id="music-label">A little music</span>
+        </button>
+      </header>
+      <section class="gallery-intro" id="home" aria-labelledby="world-title">
+        <span class="world-spark world-spark-one" aria-hidden="true">✦</span>
+        <span class="world-spark world-spark-two" aria-hidden="true">✧</span>
+        <span class="world-heart world-heart-one" aria-hidden="true">♡</span>
+        <span class="world-heart world-heart-two" aria-hidden="true">♡</span>
+        <div class="gallery-intro-inner">
+          <svg class="camera-icon" viewBox="0 0 64 52" role="img" aria-label="Camera">
+            <path d="M8 13h12l4-7h16l4 7h12a5 5 0 0 1 5 5v25a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V18a5 5 0 0 1 5-5Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="32" cy="30" r="11" fill="none" stroke="currentColor" stroke-width="3"/>
+            <circle cx="32" cy="30" r="4" fill="currentColor"/>
+            <circle cx="51" cy="20" r="2" fill="currentColor"/>
+          </svg>
+          <p class="eyebrow">A scrapbook of little things</p>
+          <h2 id="world-title">A Little World<br><em>of Yours</em></h2>
+          <p class="gallery-intro-copy">A collection of moments, people, and little things that make your world special. Settle in and relive the memories.</p>
+          <div class="gallery-actions">
+            <button class="button film-trigger" id="watch-memories" type="button"><span aria-hidden="true">▶</span> Watch the memories</button>
+          </div>
+          <p class="gallery-instruction">Press play to watch a little movie of these moments.</p>
+        </div>
+      </section>
+
+      <section class="memories-section" id="memories" hidden>
+        <div class="section-wrap">
+          <div class="section-heading">
+            <p class="eyebrow">Fifteen little windows into your world</p>
+            <h2>Moments, people & <em>memories</em></h2>
+            <p>Choose a frame to take a closer look.</p>
+          </div>
+          <div class="gallery-grid" id="gallery-grid"></div>
+          <div class="gallery-next">
+            <p>These are just a few of the moments that make up your world. And there's still so much more about you I'd love to discover.</p>
+            <a class="button button-primary" href="#letters">Next Page <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-wrap letters-section" id="letters">
+        <div class="section-heading">
+          <p class="eyebrow">Open whenever you like</p>
+          <h2>A few little <em>letters</em></h2>
+          <p>Each envelope holds words you can write in your own time.</p>
+        </div>
+        <div class="letter-grid" id="letter-grid" aria-live="polite"></div>
+        <p class="handwritten section-note">click an envelope to open it ♡</p>
+      </section>
+
+      <section class="confession-section section-wrap" id="confession">
+        <div class="confession-card">
+          <span class="confession-flower" aria-hidden="true">✿</span>
+          <p class="eyebrow">One last little thing</p>
+          <h2>From my heart,<br><em>to you.</em></h2>
+          <div class="letter-paper">
+            <p class="handwritten letter-greeting">Dear Khloe,</p>
+            <p class="confession-copy" id="confession-copy">[Write your honest confession here. Share what you feel in your own words, and remember that she is free to feel or respond however she wishes.]</p>
+            <p class="handwritten letter-signoff">With care, <span>[your name]</span></p>
+          </div>
+          <p class="gentle-note">There's no pressure to say anything back. I just wanted you to know. ♡</p>
+        </div>
+      </section>
+
+      <footer class="footer"><span>Made with care, for Khloe</span><span aria-hidden="true">♡</span></footer>
+    </div>
+  </main>
+
+  <div class="camera-dim" id="camera-dim" aria-hidden="true"></div>
+  <div class="camera-flash" id="camera-flash" aria-hidden="true"></div>
+
+  <div class="lyric-display" id="lyric-display" aria-hidden="true" role="status" aria-live="polite" aria-atomic="true">
+    <p id="lyric-line"></p>
+  </div>
+
+  <!-- Letter dialog is populated from the editable LETTERS list in script.js. -->
+  <dialog class="letter-dialog" id="letter-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-close" id="dialog-close" type="button" aria-label="Close letter">×</button>
+    <span class="dialog-flower" aria-hidden="true">♡</span>
+    <p class="eyebrow">A little note</p>
+    <h2 id="dialog-title"></h2>
+    <div class="dialog-copy" id="dialog-copy"></div>
+    <p class="handwritten dialog-signoff">With care, [your name]</p>
+  </dialog>
+
+  <dialog class="photo-dialog" id="photo-dialog" aria-label="Photo gallery">
+    <div class="photo-dialog-header">
+      <span id="photo-counter">Photo 1 of 15</span>
+      <button class="dialog-close" id="photo-dialog-close" type="button" aria-label="Close photo">×</button>
+    </div>
+    <div class="photo-dialog-stage">
+      <button class="photo-nav photo-prev" id="photo-prev" type="button" aria-label="Previous photo">←</button>
+      <img id="photo-dialog-image" alt="" hidden>
+      <div class="photo-dialog-placeholder" id="photo-dialog-placeholder" aria-hidden="true">
+        <span class="photo-placeholder-mark">♡</span>
+        <span id="photo-dialog-filename"></span>
+      </div>
+      <button class="photo-nav photo-next" id="photo-next" type="button" aria-label="Next photo">→</button>
+    </div>
+    <p class="photo-dialog-caption" id="photo-dialog-caption" hidden></p>
+  </dialog>
+
+  <dialog class="memory-film" id="memory-film" aria-label="Memory slideshow">
+    <div class="memory-film-frame">
+      <header class="film-header">
+        <p class="film-lyric" id="film-lyric" aria-live="polite"></p>
+        <button class="dialog-close film-close" id="film-close" type="button" aria-label="Close movie">×</button>
+      </header>
+      <div class="film-stage">
+        <img class="film-image" id="film-image-one" alt="" aria-hidden="true">
+        <img class="film-image" id="film-image-two" alt="" aria-hidden="true">
+        <span class="sr-only" id="film-counter" role="status" aria-live="polite">Memory 1 of 15</span>
+      </div>
+      <footer class="film-controls">
+        <button class="film-control" id="film-toggle" type="button" aria-label="Pause slideshow">Ⅱ</button>
+        <progress id="film-progress" max="15" value="1" aria-label="Movie progress"></progress>
+      </footer>
+    </div>
+  </dialog>
+
+  <audio id="background-audio" preload="none" loop></audio>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
